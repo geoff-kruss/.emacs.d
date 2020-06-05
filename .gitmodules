@@ -1,0 +1,3 @@
+[submodule "hideshow-org"]
+	path = hideshow-org
+	url = git@github.com:shanecelis/hideshow-org.git

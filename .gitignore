@@ -1,0 +1,15 @@
+recentf
+smex-items
+auto-save-list/
+backups/
+elpa/
+places
+projectile.cache
+tramp
+flycheck_init.el
+transient/
+bookmarks
+ido.last
+projectile-bookmarks.eld
+.cache
+*~
