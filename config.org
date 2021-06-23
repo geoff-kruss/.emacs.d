@@ -767,11 +767,53 @@ really helpful for some modes (like =projectile=, for example).
   (use-package which-key
     :config (which-key-mode))
 #+end_src
-
+** Install and configure org-gcal
+#+begin_src emacs-lisp
+  (use-package org-gcal
+    :defer t
+    :ensure t
+    :init
+    (setq org-gcal-client-id "1035589041536-jjreslck0tagiai13ah9d9h2drmm6egf.apps.googleusercontent.com"
+      org-gcal-client-secret "Hd1fDyjAaTKFEuw7R-UmvRJg"
+      org-gcal-fetch-file-alist '(("geoff.kruss@yuppiechef.com" .  "~/schedule.org"))))
+#+end_src
 ** Install and configure =hs-minor-mode=
 #+begin_src emacs-lisp
-  (add-to-list 'load-path "~/.emacs.d/hideshow-org")
-  (require 'hideshow-org)
+      (add-to-list 'load-path "~/.emacs.d/hideshow-org")
+      (require 'hideshow-org)
+      (setq org-agenda-time-grid (quote
+                                 ((daily today remove-match)
+                                  (0900 1100 1300 1500 1700)
+                                  "......" "----------------")))
+#+end_src
+
+** Calendar Things **
+#+begin_src emacs-lisp
+  (setq org-agenda-files '("~/org/agenda"))
+  (use-package calfw :ensure t)
+  (use-package calfw-ical :ensure t)
+  (use-package calfw-org :ensure t)
+#+end_src
+
+** Transparency **
+#+begin_src emacs-lisp
+(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
+#+end_src
+
+** Neotree **
+#+begin_src emacs-lisp
+  (windmove-default-keybindings)
+  (use-package neotree
+     :ensure t
+     :config
+     (global-set-key [f8] 'neotree-toggle)
+     (setq neo-window-fixed-size nil)
+     (setq neo-window-width 20)
+     (setq projectile-switch-project-action 'neotree-projectile-action))
+#+end_src
+
+
 #+end_src
 ** Install and configure clojure and cider
 #+begin_src emacs-lisp
